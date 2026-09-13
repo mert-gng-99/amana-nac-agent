@@ -1,0 +1,113 @@
+{
+  "scenarios": 6,
+  "expectations_met": 6,
+  "total_cost_units": 35.0,
+  "cost_if_everything_called": 72.0,
+  "saved_pct": 51.4,
+  "camara_apis": [
+    "number-verification",
+    "sim-swap",
+    "device-swap",
+    "device-status"
+  ],
+  "tools": [
+    "verify_number",
+    "check_sim_swap",
+    "sim_swap_date",
+    "check_device_swap",
+    "check_roaming",
+    "check_reachability"
+  ],
+  "min_calls": 1,
+  "max_calls": 5,
+  "avg_calls": 3.5,
+  "levels_seen": [
+    "block",
+    "clear",
+    "hold",
+    "review"
+  ],
+  "per_scenario": [
+    {
+      "id": "payday-remittance",
+      "title": "Friday payday remittance",
+      "level": "clear",
+      "expected": "clear",
+      "met": true,
+      "calls": 1,
+      "spend": 1.0,
+      "apis": [
+        "number-verification"
+      ]
+    },
+    {
+      "id": "new-receiver-large",
+      "title": "First transfer to a new receiver",
+      "level": "review",
+      "expected": "review",
+      "met": true,
+      "calls": 4,
+      "spend": 6.0,
+      "apis": [
+        "number-verification",
+        "sim-swap",
+        "device-status"
+      ]
+    },
+    {
+      "id": "sim-swap-fresh",
+      "title": "SIM changed six hours ago",
+      "level": "block",
+      "expected": "block",
+      "met": true,
+      "calls": 5,
+      "spend": 9.0,
+      "apis": [
+        "number-verification",
+        "sim-swap",
+        "device-status"
+      ]
+    },
+    {
+      "id": "sim-swap-nine-days",
+      "title": "Same signal, nine days older",
+      "level": "hold",
+      "expected": "hold",
+      "met": true,
+      "calls": 5,
+      "spend": 9.0,
+      "apis": [
+        "number-verification",
+        "sim-swap",
+        "device-status"
+      ]
+    },
+    {
+      "id": "new-handset",
+      "title": "New phone, same person",
+      "level": "review",
+      "expected": "review",
+      "met": true,
+      "calls": 5,
+      "spend": 9.0,
+      "apis": [
+        "number-verification",
+        "sim-swap",
+        "device-swap",
+        "device-status"
+      ]
+    },
+    {
+      "id": "unverified-line",
+      "title": "The network will not confirm the line",
+      "level": "block",
+      "expected": "block",
+      "met": true,
+      "calls": 1,
+      "spend": 1.0,
+      "apis": [
+        "number-verification"
+      ]
+    }
+  ]
+}
